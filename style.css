@@ -1,4 +1,4 @@
-/* الخلفية والخطوط العامة */
+/* إعدادات عامة */
 body {
   text-align: center;
   font-family: Arial, sans-serif;
@@ -37,7 +37,7 @@ h1 {
   opacity: 0.8;
 }
 
-/* منطقة اللعبة مع الحدود */
+/* منطقة اللعبة والحدود */
 .game-container {
   display: inline-block;
   position: relative;
@@ -60,24 +60,25 @@ h1 {
 /* تغليف اللوحة مع الحدود الجانبية */
 .board-wrapper {
   display: flex;
-  align-items: center;
+  align-items: stretch; /* لضمان تمدد الحدود حسب ارتفاع اللوحة */
 }
 
-/* لوحة الخلايا (ستكون عبارة عن صفوف) */
+/* لوحة الخلايا */
 .board {
   display: flex;
   flex-direction: column;
   background-color: #222;
 }
 
-/* كل صف من الخلايا */
+/* الصفوف */
 .row {
   display: flex;
 }
 
-/* تعويض الصفوف الزوجية لتأثير الخلية النحلية */
+/* إزاحة الصفوف الزوجية لإعطاء تأثير الخلية النحلية */
+/* قللت الإزاحة لتكون متلاصقة أكثر */
 .row:nth-child(even) {
-  margin-left: 40px; /* تعديل القيمة حسب العرض المطلوب */
+  margin-left: 20px;
 }
 
 /* تصميم الخلية السداسية */
@@ -94,10 +95,11 @@ h1 {
   border: 2px solid #000;
   cursor: pointer;
   transition: background 0.3s;
-  margin: 2px;
+  margin: 0; /* بدون مسافات خارجية */
+  color: black; /* لتظهر الحروف دائمًا */
 }
 
-/* عند اختيار الخلية، يتغير لونها حسب الفريق */
+/* تلوين الخلية عند اختيار الفريق */
 .hexagon.red {
   background-color: #ff4444;
   color: white;
@@ -108,7 +110,7 @@ h1 {
   color: white;
 }
 
-/* تعطيل الخلية بعد اختيارها */
+/* تعطيل الخلية بعد الاختيار */
 .hexagon.disabled {
   pointer-events: none;
   opacity: 0.6;
