@@ -1,22 +1,40 @@
 <!DOCTYPE html>
 <html lang="ar">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>حروف وألوف</title>
-    <link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>حروف وألوف - بنمط خلية النحل</title>
+  <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-    <h1>لعبة حروف وألوف</h1>
+  <h1>لعبة حروف وألوف</h1>
+  
+  <div class="teams">
+    <button class="team-btn" onclick="setTeam('red')">فريق الأحمر</button>
+    <button class="team-btn blue" onclick="setTeam('blue')">فريق الأزرق</button>
+  </div>
+  
+  <div class="game-container">
+    <!-- الحدود العلوية (للأحمر) -->
+    <div class="boundary top"></div>
     
-    <div class="teams">
-        <button class="team-btn" onclick="setTeam('red')">فريق الأحمر</button>
-        <button class="team-btn blue" onclick="setTeam('blue')">فريق الأزرق</button>
+    <div class="board-wrapper">
+      <!-- الحدود اليسرى (للأزرق) -->
+      <div class="boundary left"></div>
+      
+      <!-- لوحة الخلايا السداسية -->
+      <div class="board" id="board"></div>
+      
+      <!-- الحدود اليمنى (للأزرق) -->
+      <div class="boundary right"></div>
     </div>
-
-    <div id="board"></div>
-    <button id="reset-btn" onclick="resetGame()">إعادة اللعب</button>
-
-    <script src="script.js"></script>
+    
+    <!-- الحدود السفلية (للأحمر) -->
+    <div class="boundary bottom"></div>
+  </div>
+  
+  <button id="reset-btn" onclick="resetGame()">إعادة اللعب</button>
+  
+  <script src="script.js"></script>
 </body>
 </html>
