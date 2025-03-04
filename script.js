@@ -1,4 +1,4 @@
-// مجموعة الحروف العربية
+// مجموعة الحروف العربية (28 حرفاً)
 const letters = [
   "أ", "ب", "ت", "ث", "ج", "ح", "خ", 
   "د", "ذ", "ر", "ز", "س", "ش", "ص", 
@@ -13,7 +13,7 @@ function setTeam(team) {
   currentTeam = team;
 }
 
-// إنشاء لوحة الخلايا السداسية
+// إنشاء لوحة الخلايا السداسية بنمط الخلية النحلية
 function createBoard() {
   const board = document.getElementById("board");
   board.innerHTML = "";
