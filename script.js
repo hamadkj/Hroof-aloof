@@ -5,36 +5,31 @@ const letters = [
     "ك", "ل", "م", "ن", "هـ", "و", "ي"
 ];
 
-const questions = {
-    "أ": "كم عدد الكواكب في المجموعة الشمسية؟",
-    "ب": "ما هو أكبر محيط في العالم؟",
-    "ت": "ما هو حاصل ضرب 7 × 8؟",
-    "ث": "ما هو عاصمة فرنسا؟",
-    "ج": "ما هو العنصر الكيميائي الذي يرمز له بـ O؟",
-    "ح": "كم عدد حروف اللغة العربية؟",
-    "خ": "اذكر اسم نهر في أفريقيا.",
-    // أضف المزيد من الأسئلة أو الجوائز هنا
-};
+let currentTeam = "red";  // يبدأ بفريق الأحمر
+
+function setTeam(team) {
+    currentTeam = team;
+}
 
 function createBoard() {
     const board = document.getElementById("board");
     board.innerHTML = "";
 
     letters.forEach(letter => {
-        const btn = document.createElement("button");
+        const btn = document.createElement("div");
         btn.textContent = letter;
-        btn.onclick = () => showResult(letter);
+        btn.classList.add("letter");
+        btn.onclick = () => markLetter(btn);
         board.appendChild(btn);
     });
 }
 
-function showResult(letter) {
-    const result = document.getElementById("result");
-    result.textContent = questions[letter] || "مبروك! ربحت جائزة 🎉";
+function markLetter(btn) {
+    btn.classList.add(currentTeam);
+    btn.classList.add("disabled");
 }
 
 function resetGame() {
-    document.getElementById("result").textContent = "";
     createBoard();
 }
 
