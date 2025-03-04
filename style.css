@@ -1,84 +1,131 @@
+/* الخلفية والخطوط العامة */
 body {
-    text-align: center;
-    font-family: Arial, sans-serif;
-    background-color: #222;
-    color: white;
+  text-align: center;
+  font-family: Arial, sans-serif;
+  background-color: #222;
+  color: white;
+  margin: 0;
+  padding: 20px;
 }
 
 h1 {
-    font-size: 36px;
-    margin-top: 20px;
+  margin-top: 20px;
+  font-size: 36px;
 }
 
+/* أزرار اختيار الفريق */
 .teams {
-    margin: 20px 0;
+  margin: 20px;
 }
 
 .team-btn {
-    padding: 10px 20px;
-    font-size: 18px;
-    margin: 10px;
-    cursor: pointer;
-    border: none;
-    border-radius: 5px;
-    background-color: #ff4444;
-    color: white;
+  padding: 10px 20px;
+  font-size: 18px;
+  margin: 10px;
+  cursor: pointer;
+  border: none;
+  border-radius: 5px;
+  background-color: #ff4444;
+  color: white;
 }
 
 .team-btn.blue {
-    background-color: #007bff;
+  background-color: #007bff;
 }
 
 .team-btn:hover {
-    opacity: 0.8;
+  opacity: 0.8;
 }
 
-#board {
-    display: grid;
-    grid-template-columns: repeat(7, 1fr);
-    gap: 10px;
-    width: 80%;
-    margin: 20px auto;
+/* منطقة اللعبة مع الحدود */
+.game-container {
+  display: inline-block;
+  position: relative;
 }
 
-.letter {
-    padding: 20px;
-    font-size: 24px;
-    font-weight: bold;
-    background-color: white;
-    color: black;
-    border: 2px solid #000;
-    cursor: pointer;
-    text-align: center;
-    border-radius: 10px;
-    transition: background 0.3s;
+/* الحدود العلوية والسفلية (أحمر) */
+.boundary.top,
+.boundary.bottom {
+  background-color: red;
+  height: 20px;
 }
 
-.letter.red {
-    background-color: #ff4444;
-    color: white;
+/* الحدود اليمنى واليسرى (أزرق) */
+.boundary.left,
+.boundary.right {
+  background-color: blue;
+  width: 20px;
 }
 
-.letter.blue {
-    background-color: #007bff;
-    color: white;
+/* تغليف اللوحة مع الحدود الجانبية */
+.board-wrapper {
+  display: flex;
+  align-items: center;
 }
 
-.letter.disabled {
-    pointer-events: none;
-    opacity: 0.6;
+/* لوحة الخلايا (ستكون عبارة عن صفوف) */
+.board {
+  display: flex;
+  flex-direction: column;
+  background-color: #222;
 }
 
+/* كل صف من الخلايا */
+.row {
+  display: flex;
+}
+
+/* تعويض الصفوف الزوجية لتأثير الخلية النحلية */
+.row:nth-child(even) {
+  margin-left: 40px; /* تعديل القيمة حسب العرض المطلوب */
+}
+
+/* تصميم الخلية السداسية */
+.hexagon {
+  width: 80px;
+  height: 92px;
+  background: white;
+  clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 24px;
+  font-weight: bold;
+  border: 2px solid #000;
+  cursor: pointer;
+  transition: background 0.3s;
+  margin: 2px;
+}
+
+/* عند اختيار الخلية، يتغير لونها حسب الفريق */
+.hexagon.red {
+  background-color: #ff4444;
+  color: white;
+}
+
+.hexagon.blue {
+  background-color: #007bff;
+  color: white;
+}
+
+/* تعطيل الخلية بعد اختيارها */
+.hexagon.disabled {
+  pointer-events: none;
+  opacity: 0.6;
+}
+
+/* زر إعادة اللعب */
 #reset-btn {
-    padding: 15px;
-    font-size: 20px;
-    cursor: pointer;
-    background-color: #28a745;
-    color: white;
-    border: none;
-    border-radius: 5px;
+  padding: 15px;
+  font-size: 20px;
+  cursor: pointer;
+  background-color: #28a745;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  margin-top: 20px;
 }
 
 #reset-btn:hover {
-    background-color: #218838;
+  background-color: #218838;
 }
