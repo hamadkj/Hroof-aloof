@@ -1,94 +1,7 @@
-/* إعدادات عامة */
-body {
-  text-align: center;
-  font-family: Arial, sans-serif;
-  background-color: #222;
-  color: white;
-  margin: 0;
-  padding: 20px;
-}
-
-h1 {
-  margin-top: 20px;
-  font-size: 36px;
-}
-
-/* أزرار اختيار الفريق */
-.teams {
-  margin: 20px;
-}
-
-.team-btn {
-  padding: 10px 20px;
-  font-size: 18px;
-  margin: 10px;
-  cursor: pointer;
-  border: none;
-  border-radius: 5px;
-  background-color: #ff4444;
-  color: white;
-}
-
-.team-btn.blue {
-  background-color: #007bff;
-}
-
-.team-btn:hover {
-  opacity: 0.8;
-}
-
-/* منطقة اللعبة والحدود */
-.game-container {
-  display: inline-block;
-  position: relative;
-}
-
-/* الحدود العلوية والسفلية (أحمر) */
-.boundary.top,
-.boundary.bottom {
-  background-color: red;
-  height: 20px;
-}
-
-/* الحدود اليمنى واليسرى (أزرق) */
-.boundary.left,
-.boundary.right {
-  background-color: blue;
-  width: 20px;
-  flex-shrink: 0;
-}
-
-/* تغليف اللوحة مع الحدود الجانبية */
-.board-wrapper {
-  display: flex;
-  align-items: stretch; /* تمدد الحدود على ارتفاع اللوحة */
-}
-
-/* لوحة الخلايا */
-.board {
-  display: flex;
-  flex-direction: column;
-  background-color: #222;
-}
-
-/* الصفوف */
-.row {
-  display: flex;
-  margin: 0;
-  /* لكل صف بعد الأول، نجرب تراكب طفيف */
-}
-.row:not(:first-child) {
-  margin-top: -20px;
-}
-/* تحريك الصفوف الزوجية لتأثير الخلية النحلية */
-.row:nth-child(even) {
-  transform: translateX(40px);
-}
-
 /* تصميم الخلية السداسية */
 .hexagon {
-  width: 80px;
-  height: 92px;
+  width: 86px;  /* العرض */
+  height: 100px; /* الارتفاع */
   background: white;
   clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
   display: flex;
@@ -99,40 +12,16 @@ h1 {
   border: 2px solid #000;
   cursor: pointer;
   transition: background 0.3s;
-  /* إزالة الهوامش لضمان التلاصق */
-  margin: 0;
-  color: black; /* الحروف تظهر دائمًا */
+  color: black;
 }
 
-/* تلوين الخلية عند اختيار الفريق */
-.hexagon.red {
-  background-color: #ff4444;
-  color: white;
+/* ضبط الصفوف لتتماشى مع الشكل السداسي */
+.row {
+  display: flex;
+  margin-top: -25px; /* تقليل الفراغ بين الصفوف */
 }
 
-.hexagon.blue {
-  background-color: #007bff;
-  color: white;
-}
-
-/* تعطيل الخلية بعد الاختيار */
-.hexagon.disabled {
-  pointer-events: none;
-  opacity: 0.6;
-}
-
-/* زر إعادة اللعب */
-#reset-btn {
-  padding: 15px;
-  font-size: 20px;
-  cursor: pointer;
-  background-color: #28a745;
-  color: white;
-  border: none;
-  border-radius: 5px;
-  margin-top: 20px;
-}
-
-#reset-btn:hover {
-  background-color: #218838;
+/* تحريك الصفوف الزوجية لتتماشى مع التصميم */
+.row:nth-child(even) {
+  transform: translateX(43px); /* نصف عرض الخلية */
 }
