@@ -1,30 +1,55 @@
+/* إعداد الشبكة */
+.grid {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0px; /* إزالة أي فراغات بين الصفوف */
+}
+
 /* تصميم الخلية السداسية */
 .hexagon {
-  width: 90px;  /* العرض */
-  height: 103px; /* الارتفاع المناسب لشكل السداسي */
-  background: white;
+  width: 80px;  /* العرض */
+  height: 92px; /* الارتفاع المناسب لشكل السداسي */
+  background: #fdf5c9; /* لون الحروف الأساسي */
   clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 24px;
+  font-size: 32px;
   font-weight: bold;
-  border: 2px solid #000;
+  border: 2px solid black;
   cursor: pointer;
   transition: background 0.3s;
   color: black;
   position: relative;
-  margin: -5px; /* تقليل الفجوات بين الخلايا */
 }
 
 /* ضبط الصفوف لتتماشى مع التصميم السداسي */
 .row {
   display: flex;
   justify-content: center;
-  margin-top: -26px; /* تقليل التباعد بين الصفوف */
+  margin-top: -22px; /* تقليل التباعد بين الصفوف */
 }
 
 /* تحريك الصفوف الزوجية ليكون الشكل سداسياً متماسكاً */
 .row:nth-child(even) {
-  transform: translateX(45px); /* تحريك بمقدار نصف عرض الخلية */
+  transform: translateX(40px); /* تحريك بمقدار نصف عرض الخلية */
+}
+
+/* الخلايا الجانبية (الأحمر والأخضر) */
+.side-cell {
+  width: 80px;
+  height: 92px;
+  clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
+  border: 2px solid black;
+}
+
+/* اللون الأحمر للطرفين الجانبيين */
+.red {
+  background: red;
+}
+
+/* اللون الأخضر للطرفين العلوي والسفلي */
+.green {
+  background: green;
 }
