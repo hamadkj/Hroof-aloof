@@ -1,4 +1,4 @@
-/* إعداد الشبكة */
+/* الشبكة الرئيسية */
 .grid {
   display: flex;
   flex-direction: column;
@@ -28,7 +28,7 @@
 .row {
   display: flex;
   justify-content: center;
-  margin-top: -22px; /* تقليل التباعد بين الصفوف */
+  margin-top: -23px; /* تقليل التباعد بين الصفوف */
 }
 
 /* تحريك الصفوف الزوجية ليكون الشكل سداسياً متماسكاً */
@@ -46,10 +46,21 @@
 
 /* اللون الأحمر للطرفين الجانبيين */
 .red {
-  background: red;
+  background: red !important;
 }
 
 /* اللون الأخضر للطرفين العلوي والسفلي */
 .green {
-  background: green;
+  background: green !important;
+}
+
+/* ألوان الفرق عند اختيار الخلية */
+.team1 {
+  background: blue !important;
+  color: white;
+}
+
+.team2 {
+  background: red !important;
+  color: white;
 }
