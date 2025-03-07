@@ -1,7 +1,7 @@
 /* تصميم الخلية السداسية */
 .hexagon {
-  width: 86px;  /* العرض */
-  height: 100px; /* الارتفاع */
+  width: 90px;  /* العرض */
+  height: 78px; /* الارتفاع بحيث يكون متناسب مع العرض */
   background: white;
   clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
   display: flex;
@@ -13,15 +13,17 @@
   cursor: pointer;
   transition: background 0.3s;
   color: black;
+  margin: -5px; /* يساعد في التلاصق */
 }
 
-/* ضبط الصفوف لتتماشى مع الشكل السداسي */
+/* ضبط الصفوف لتتماشى مع التصميم السداسي */
 .row {
   display: flex;
-  margin-top: -25px; /* تقليل الفراغ بين الصفوف */
+  justify-content: center;
+  margin-top: -19px; /* يقلل التباعد بين الصفوف */
 }
 
-/* تحريك الصفوف الزوجية لتتماشى مع التصميم */
+/* تحريك الصفوف الزوجية ليكون الشكل سداسياً متماسكاً */
 .row:nth-child(even) {
-  transform: translateX(43px); /* نصف عرض الخلية */
+  transform: translateX(45px); /* نصف عرض الخلية تقريباً */
 }
